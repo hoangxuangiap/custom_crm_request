@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form Wizard Import Nhu Cầu -->
+    <record id="view_import_customer_request_wizard_form" model="ir.ui.view">
+        <field name="name">crm.request.import.wizard.form</field>
+        <field name="model">crm.request.import.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Import Nhu Cầu từ Excel">
+                <group>
+                    <field name="file_data" filename="file_name"/>
+                    <field name="file_name" invisible="1"/>
+                </group>
+                <footer>
+                    <button string="Import" name="action_import" type="object" class="btn-primary"/>
+                    <button string="Hủy" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action mở Wizard -->
+    <record id="action_import_customer_request_wizard" model="ir.actions.act_window">
+        <field name="name">Import Nhu Cầu từ Excel</field>
+        <field name="res_model">crm.request.import.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

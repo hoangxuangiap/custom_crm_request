@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- 1. View List/Tree: Đã khóa nút Thêm/Sửa/Xóa theo đúng đề bài -->
+    <record id="view_crm_customer_request_list" model="ir.ui.view">
+        <field name="name">crm.customer.request.list</field>
+        <field name="model">crm.customer.request</field>
+        <field name="arch" type="xml">
+            <list string="Nhu cầu của KH" create="false" edit="false" delete="false">
+                <field name="date"/>
+                <field name="opportunity_id"/>
+                <field name="product_id"/>
+                <field name="qty"/>
+                <field name="description"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- 2. View Form xem chi tiết bản ghi -->
+    <record id="view_crm_customer_request_form" model="ir.ui.view">
+        <field name="name">crm.customer.request.form</field>
+        <field name="model">crm.customer.request</field>
+        <field name="arch" type="xml">
+            <form string="Nhu cầu của KH" create="false" edit="false" delete="false">
+                <sheet>
+                    <group>
+                        <group string="Thông tin nhu cầu">
+                            <field name="opportunity_id" readonly="1"/>
+                            <field name="date" readonly="1"/>
+                            <field name="product_id" readonly="1"/>
+                        </group>
+                        <group string="Số lượng &amp; Chi tiết">
+                            <field name="qty" readonly="1"/>
+                            <field name="description" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- 3. Action mở giao diện -->
+    <record id="action_crm_customer_request" model="ir.actions.act_window">
+        <field name="name">Nhu cầu của KH</field>
+        <field name="res_model">crm.customer.request</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Chưa có dữ liệu nhu cầu của khách hàng!
+            </p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Menu App chính độc lập -->
+    <menuitem id="menu_crm_customer_request_root"
+              name="Nhu cầu của KH"
+              sequence="10"/>
+
+    <!-- Menu con mở danh sách -->
+    <menuitem id="menu_crm_customer_request_sub"
+              name="Danh sách nhu cầu"
+              parent="menu_crm_customer_request_root"
+              action="action_crm_customer_request"
+              sequence="1"/>
+</odoo>

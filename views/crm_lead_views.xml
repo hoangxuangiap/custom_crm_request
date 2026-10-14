@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form cơ hội CRM: bổ sung tab Nhu cầu & nút Import Excel -->
+    <record id="view_crm_lead_form_customer_request" model="ir.ui.view">
+        <field name="name">crm.lead.form.customer.request</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+
+        <field name="arch" type="xml">
+            <!-- 1. Thêm nút Import Nhu Cầu vào Header -->
+            <xpath expr="//header" position="inside">
+                <button name="%(action_import_customer_request_wizard)d" 
+                        string="Import Nhu Cầu" 
+                        type="action" 
+                        class="btn-secondary"/>
+            </xpath>
+
+            <!-- 2. Thêm Tab Nhu cầu của KH vào Notebook -->
+            <xpath expr="//notebook" position="inside">
+                <page string="Nhu cầu của KH">
+                    <field name="request_ids">
+                        <list editable="bottom">
+                            <field name="date"/>
+                            <field name="product_id" options="{'no_create': True, 'no_create_edit': True}"/>
+                            <field name="qty"/>
+                            <field name="description"/>
+                        </list>
+                    </field>
+
+                    <group class="oe_subtotal_footer">
+                        <field name="request_sales_qty" string="Doanh số (số lượng)" readonly="1"/>
+                        <field name="request_revenue" string="Doanh thu mong đợi" readonly="1"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
